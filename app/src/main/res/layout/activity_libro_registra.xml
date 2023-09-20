@@ -10,12 +10,22 @@
 
 
     <TextView
-        android:id="@+id/idTitlePage"
+    android:id="@+id/idTitlePage"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp"
+    android:padding="10dp"
+    android:text="@string/txt_registro_de_libro"
+    android:textAlignment="center"
+    android:textSize="18sp"
+    android:textStyle="bold" />
+
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
         android:padding="10dp"
-        android:text="@string/txt_registro_de_libro"
+        android:text="Autor: Celso Rodriguez"
         android:textAlignment="center"
         android:textSize="18sp"
         android:textStyle="bold" />
