@@ -9,13 +9,25 @@
     android:padding="10dp"
     >
 
-<ScrollView
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content">
-
-
-
-</ScrollView>
+    <TextView
+        android:id="@+id/idTitlePage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:padding="10dp"
+        android:text="Registro de Editorial"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:padding="10dp"
+        android:text="Autor: Juan Ramos"
+        android:textAlignment="center"
+        android:textSize="12sp"
+        android:textStyle="normal" />
 
 
 
