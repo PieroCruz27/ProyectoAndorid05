@@ -11,6 +11,7 @@
             <item android:id="@+id/idMenuRegRevista" android:title="@string/txt_menu_revista" />
             <item android:id="@+id/idMenuRegSala" android:title="@string/txt_menu_sala" />
             <item android:id="@+id/idMenuRegUsuario" android:title="@string/txt_menu_usuario" />
+
         </menu>
     </item>
 
