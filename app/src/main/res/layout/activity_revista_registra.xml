@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".vista.registra.RevistaRegistraActivity"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".vista.registra.RevistaRegistraActivity">
 
     <TextView
         android:id="@+id/idTitlePage"
@@ -23,11 +23,82 @@
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
         android:padding="10dp"
-        android:text="Autor: Solorzano Samsom"
+        android:text="@string/solorzano"
         android:textAlignment="textStart"
         android:textSize="12sp"
-        android:textStyle="normal"/>
+        android:textStyle="normal" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:hint="@string/txt_nombre_revista">
 
 
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
 
+                    android:inputType="text"
+                    />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:inputType="text"
+                android:hint="@string/txt_frecuencia_revista">
+
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="180dp"
+                android:hint="@string/txt_fechaCreacion_revista">
+
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etFechaCreacion"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:focusable="false"
+                    android:inputType="date" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Spinner
+                android:id="@+id/spnModalidad"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                android:minHeight="48dp"
+                android:padding="4dp" />
+
+            <Spinner
+                android:id="@+id/spnPais"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                android:minHeight="48dp"
+                android:padding="4dp" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+    </ScrollView>
 </androidx.appcompat.widget.LinearLayoutCompat>
