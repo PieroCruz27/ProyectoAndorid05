@@ -5,7 +5,7 @@ import java.util.Date;
 public class Libro {
 
         private String titulo;
-        private int anio;
+        private String anio;
         private String serie;
         private String fechaRegistro;
         private int estado;
@@ -20,11 +20,11 @@ public class Libro {
         this.titulo = titulo;
     }
 
-    public int getAnio() {
+    public String getAnio() {
         return anio;
     }
 
-    public void setAnio(int anio) {
+    public void setAnio(String anio) {
         this.anio = anio;
     }
 
