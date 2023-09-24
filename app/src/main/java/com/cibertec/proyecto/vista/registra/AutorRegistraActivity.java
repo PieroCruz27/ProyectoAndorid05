@@ -168,7 +168,7 @@ public class AutorRegistraActivity extends NewAppCompatActivity {
                 if (response.isSuccessful()){
                     Autor objSalida = response.body();
                     mensajeAlert(" Registro exitoso  >>> ID >> " + objSalida.getIdAutor()
-                            + " >>> Razón Social >>> " +  objSalida.getApellidos());
+                            + " >>> Apellidos >>> " +  objSalida.getApellidos());
                 }else{
                     mensajeAlert(response.toString());
                 }

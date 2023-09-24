@@ -10,6 +10,6 @@ import retrofit2.http.GET;
 public interface ServiceGrado {
 
     @GET("util/listaGrado")
-    public Call<List<Grado>> listaGrado();
+    public abstract Call<List<Grado>> listaGrado();
 
 }
