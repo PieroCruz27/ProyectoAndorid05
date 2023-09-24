@@ -67,11 +67,11 @@ public class LibroRegistraActivity extends NewAppCompatActivity {
         txtSerie = findViewById(R.id.txtRegLibSerie);
         btnRegistrar = findViewById(R.id.btnRegLibEnviar);
 
-        adaptadorPais = new ArrayAdapter<>(this, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item, paises);
+        adaptadorPais = new ArrayAdapter<String>(this, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item, paises);
         spnPais = findViewById(R.id.spnRegLibPais);
         spnPais.setAdapter(adaptadorPais);
 
-        adaptadorCategoria = new ArrayAdapter<>(this, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item, categorias);
+        adaptadorCategoria = new ArrayAdapter<String>(this, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item, categorias);
         spnCategoria = findViewById(R.id.spnRegLibCategoria);
         spnCategoria.setAdapter(adaptadorCategoria);
 
