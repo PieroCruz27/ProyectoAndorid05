@@ -17,7 +17,60 @@
         android:textAlignment="center"
         android:textSize="18sp"
         android:textStyle="bold" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="3dp"
+        android:padding="3dp"
+        android:text="Nombres"
+        android:textAlignment="center" />
+
+    <EditText
+        android:id="@+id/txtRegEdiNombres"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="3dp"
+        android:padding="3dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="3dp"
+        android:padding="3dp"
+        android:text="Apellidos"
+        android:textAlignment="center" />
+
+    <EditText
+        android:id="@+id/txtRegEdiApellidos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="3dp"
+        android:padding="3dp" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="3dp"
+        android:padding="3dp"
+        android:text="Correo"
+        android:textAlignment="center" />
+
+    <EditText
+        android:id="@+id/txtRegEdiCorreo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="3dp"
+        android:padding="3dp" />
 
 
+    <TextView
+        android:id="@+id/idAutorPage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:padding="10dp"
+        android:text="Autor: Esteffany Huamanraime"
+        android:textAlignment="center"
+        android:textSize="12sp"
+        android:textStyle="bold" />
 
 </androidx.appcompat.widget.LinearLayoutCompat>
