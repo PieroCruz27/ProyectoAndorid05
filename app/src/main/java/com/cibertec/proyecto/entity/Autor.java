@@ -9,6 +9,7 @@ public class Autor {
     private String apellidos;
     private String correo;
     private String telefono;
+    private String fechaNacimiento;
     private String fechaRegistro;
     private int estado;
     private Grado grado;
@@ -54,12 +55,12 @@ public class Autor {
         this.telefono = telefono;
     }
 
-    public String getFechaRegistro() {
-        return fechaRegistro;
+    public String getFechaNacimiento() {
+        return fechaNacimiento;
     }
 
-    public void setFechaRegistro(String fechaRegistro) {
-        this.fechaRegistro = fechaRegistro;
+    public void setFechaNacimiento(String fechaNacimiento) {
+        this.fechaNacimiento = fechaNacimiento;
     }
 
     public int getEstado() {
@@ -84,5 +85,13 @@ public class Autor {
 
     public void setPais(Pais pais) {
         this.pais = pais;
+    }
+
+    public String getFechaRegistro() {
+        return fechaRegistro;
+    }
+
+    public void setFechaRegistro(String fechaRegistro) {
+        this.fechaRegistro = fechaRegistro;
     }
 }
