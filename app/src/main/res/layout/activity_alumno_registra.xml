@@ -7,6 +7,14 @@
     tools:context=".vista.registra.AlumnoRegistraActivity"
     android:orientation="vertical">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
     <TextView
         android:id="@+id/idTitlePage"
         android:layout_width="match_parent"
@@ -23,9 +31,161 @@
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
         android:padding="10dp"
-        android:text="Autor: Jorge Jacinto"
+        android:text="Autor: Brandom Piero Castillo Cruz"
         android:textAlignment="center"
         android:textSize="12sp"
         android:textStyle="normal" />
+
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="3dp"
+        android:padding="2dp"
+        android:text="Nombres"
+        android:textAlignment="center" />
+
+    <EditText
+        android:id="@+id/txtRegAluNombres"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="3dp"
+        android:padding="2dp" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="3dp"
+        android:padding="2dp"
+        android:text="Apellidos"
+        android:textAlignment="center" />
+
+    <EditText
+        android:id="@+id/txtRegAluApellidos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="3dp"
+        android:padding="2dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="3dp"
+        android:padding="2dp"
+        android:text="Telefono"
+        android:textAlignment="center" />
+
+    <EditText
+        android:id="@+id/txtRegAluTelefono"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="3dp"
+        android:padding="2dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="3dp"
+        android:padding="2dp"
+        android:text="DNI"
+        android:textAlignment="center" />
+
+    <EditText
+        android:id="@+id/txtRegAluDNI"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="3dp"
+        android:padding="2dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="3dp"
+        android:padding="2dp"
+        android:text="Correo"
+        android:textAlignment="center" />
+
+    <EditText
+        android:id="@+id/txtRegAluCorreo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="3dp"
+        android:padding="2dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="3dp"
+        android:padding="2dp"
+        android:text="Direccion"
+        android:textAlignment="center" />
+
+    <EditText
+        android:id="@+id/txtRegAluDireccion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="3dp"
+        android:padding="2dp" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="3dp"
+        android:padding="2dp"
+        android:text="Fecha de nacimiento"
+        android:textAlignment="center" />
+
+    <EditText
+        android:id="@+id/txtRegAluFecha"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="3dp"
+        android:padding="2dp"
+        android:inputType="date"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="3dp"
+        android:padding="1dp"
+        android:text="País" />
+    <Spinner
+        android:id="@+id/spnRegAluPais"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="3dp"
+        android:padding="1dp"
+        android:minHeight="48dp"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="3dp"
+        android:padding="1dp"
+        android:text="Modalidad" />
+    <Spinner
+        android:id="@+id/spnRegAluModalidad"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="3dp"
+        android:padding="1dp"
+        android:minHeight="48dp"
+        />
+
+    <Button
+        android:id="@+id/btnRegAluEnviar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="4dp"
+        android:padding="4dp"
+        android:text="Registrar Alumno" />
+
+</androidx.appcompat.widget.LinearLayoutCompat>
+
+    </ScrollView>
 
 </androidx.appcompat.widget.LinearLayoutCompat>
