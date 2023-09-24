@@ -1,6 +1,7 @@
 package com.cibertec.proyecto.vista.registra;
-
+import android.app.AlertDialog;
 import android.os.Bundle;
+
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -8,7 +9,6 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AlertDialog;
 
 import com.cibertec.proyecto.R;
 import com.cibertec.proyecto.entity.Autor;
@@ -79,17 +79,11 @@ public class AutorRegistraActivity extends NewAppCompatActivity {
                 String fechaNacimiento = txtFechaNacimiento.getText().toString();
 
                 String idPais = spnPais.getSelectedItem().toString().split(":")[0];
-                String iso = spnPais.getSelectedItem().toString().split(":")[1];
-                String nombre = spnPais.getSelectedItem().toString().split(":")[2];
                 String idGrado = spnGrado.getSelectedItem().toString().split(":")[0];
-                String descripcion = spnGrado.getSelectedItem().toString().split(":")[1];
                 Pais objPais = new Pais();
                 objPais.setIdPais(Integer.parseInt(idPais));
-                objPais.setIso(iso);
-                objPais.setNombre(nombre);
                 Grado objGrado = new Grado();
                 objGrado.setIdGrado(Integer.parseInt(idGrado));
-                objGrado.setDescripcion(descripcion);
                 Autor objAutor = new Autor();
                 objAutor.setNombres(nombres);
                 objAutor.setApellidos(apellidos);
