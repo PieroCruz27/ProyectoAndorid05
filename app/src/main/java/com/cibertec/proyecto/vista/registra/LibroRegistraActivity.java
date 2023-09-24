@@ -31,8 +31,6 @@ import retrofit2.Response;
 
 public class LibroRegistraActivity extends NewAppCompatActivity {
 
-
-
     //Pais
     Spinner spnPais;
     ArrayAdapter<String> adaptadorPais;
