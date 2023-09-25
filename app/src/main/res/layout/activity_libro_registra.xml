@@ -4,23 +4,126 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".vista.crud.LibroCrudListaActivity"
+    tools:context=".vista.registra.LibroRegistraActivity"
     android:orientation="vertical"
     android:padding="10dp">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
     <TextView
-        android:id="@+id/idTitlePage"
+    android:id="@+id/idTitlePage"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp"
+    android:padding="10dp"
+    android:text="@string/txt_registro_de_libro"
+    android:textAlignment="center"
+    android:textSize="18sp"
+    android:textStyle="bold" />
+
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
         android:padding="10dp"
-        android:text="@string/txt_registro_de_libro"
+        android:text="Autor: Celso Rodriguez"
         android:textAlignment="center"
         android:textSize="18sp"
         android:textStyle="bold" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="3dp"
+        android:padding="3dp"
+        android:text="Titulo"
+        android:textAlignment="center" />
+
+    <EditText
+        android:id="@+id/txtRegLibTitulo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="3dp"
+        android:padding="3dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="3dp"
+        android:padding="3dp"
+        android:text="Anio"
+        android:textAlignment="center" />
+
+    <EditText
+        android:id="@+id/txtRegLibAnio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="3dp"
+        android:padding="3dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="3dp"
+        android:padding="3dp"
+        android:text="Serie"
+        android:textAlignment="center" />
+
+    <EditText
+        android:id="@+id/txtRegLibSerie"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="3dp"
+        android:padding="3dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="3dp"
+        android:padding="3dp"
+        android:text="País" />
+    <Spinner
+        android:id="@+id/spnRegLibPais"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="3dp"
+        android:padding="3dp"
+        android:minHeight="48dp"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="3dp"
+        android:padding="3dp"
+        android:text="Categoría" />
+    <Spinner
+        android:id="@+id/spnRegLibCategoria"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="3dp"
+        android:padding="3dp"
+        android:minHeight="48dp"
+        />
+
+    <Button
+        android:id="@+id/btnRegLibEnviar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="3dp"
+        android:padding="3dp"
+        android:text="Registrar" />
 
 
 
 </androidx.appcompat.widget.LinearLayoutCompat>
+
+    </ScrollView>
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
