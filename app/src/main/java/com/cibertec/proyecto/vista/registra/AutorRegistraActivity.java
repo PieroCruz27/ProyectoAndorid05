@@ -77,25 +77,57 @@ public class AutorRegistraActivity extends NewAppCompatActivity {
                 String apellidos = txtApellidos.getText().toString();
                 String correo = txtCorreo.getText().toString();
                 String fechaNacimiento = txtFechaNacimiento.getText().toString();
-
-                String idPais = spnPais.getSelectedItem().toString().split(":")[0];
-                String idGrado = spnGrado.getSelectedItem().toString().split(":")[0];
-                Pais objPais = new Pais();
-                objPais.setIdPais(Integer.parseInt(idPais));
-                Grado objGrado = new Grado();
-                objGrado.setIdGrado(Integer.parseInt(idGrado));
-                Autor objAutor = new Autor();
-                objAutor.setNombres(nombres);
-                objAutor.setApellidos(apellidos);
-                objAutor.setCorreo(correo);
-                objAutor.setFechaNacimiento(fechaNacimiento);
-                objAutor.setPais(objPais);
-                objAutor.setGrado(objGrado);
-                objAutor.setFechaRegistro(FunctionUtil.getFechaActualStringDateTime());
-                objAutor.setEstado(1);
-                insertaAutor(objAutor);
+                String seleccionPais = spnPais.getSelectedItem().toString();
+                String seleccionGrado = spnGrado.getSelectedItem().toString();
+                if (nombres.isEmpty()) {
+                    mensajeToast("Por favor, complete el campo Nombres.");
+                }else if (apellidos.isEmpty()){
+                    mensajeToast("Por favor, complete el campo Apellidos.");
+                }else if (correo.isEmpty()){
+                    mensajeToast("Por favor, complete el campo Correo.");
+                } else if (!isValidEmail(correo)) {
+                    mensajeToast("Ingrese un correo electrónico válido.");
+                }else if (fechaNacimiento.isEmpty()){
+                    mensajeToast("Por favor, complete el campo Fecha de Nacimiento.");
+                } else if (!isValidDateFormat(fechaNacimiento)) {
+                    // Validar el formato de la fecha de nacimiento
+                    mensajeToast("Ingrese una fecha de nacimiento válida (yyyy-MM-dd).");
+                } else if ("Seleccione un país".equals(seleccionPais)) {
+                    // Validar que se haya seleccionado un país
+                    mensajeToast("Por favor, seleccione un país.");
+                } else if ("Seleccione un grado".equals(seleccionGrado)) {
+                    // Validar que se haya seleccionado un grado
+                    mensajeToast("Por favor, seleccione un grado.");
+                } else {
+                    // Resto del código para insertar el autor si los campos son válidos
+                    String idPais = spnPais.getSelectedItem().toString().split(":")[0];
+                    String idGrado = spnGrado.getSelectedItem().toString().split(":")[0];
+                    Pais objPais = new Pais();
+                    objPais.setIdPais(Integer.parseInt(idPais));
+                    Grado objGrado = new Grado();
+                    objGrado.setIdGrado(Integer.parseInt(idGrado));
+                    Autor objAutor = new Autor();
+                    objAutor.setNombres(nombres);
+                    objAutor.setApellidos(apellidos);
+                    objAutor.setCorreo(correo);
+                    objAutor.setFechaNacimiento(fechaNacimiento);
+                    objAutor.setPais(objPais);
+                    objAutor.setGrado(objGrado);
+                    objAutor.setFechaRegistro(FunctionUtil.getFechaActualStringDateTime());
+                    objAutor.setEstado(1);
+                    insertaAutor(objAutor);
+                }
             }
         });
+    }
+    // Función para validar el formato de la fecha de nacimiento
+    private boolean isValidDateFormat(String date) {
+        return date.matches("[0-9]{4}-[0-9]{2}-[0-9]{2}");
+    }
+    // Función para validar el formato del correo electrónico
+    private boolean isValidEmail(String email) {
+        String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
+        return email.matches(emailPattern);
     }
     public void mensajeToast(String mensaje){
         Toast toast1 =  Toast.makeText(getApplicationContext(),mensaje, Toast.LENGTH_LONG);
@@ -114,6 +146,8 @@ public class AutorRegistraActivity extends NewAppCompatActivity {
             @Override
             public void onResponse(Call<List<Pais>> call, Response<List<Pais>> response) {
                 if (response.isSuccessful()){
+                    paises.clear();
+                    paises.add("Seleccione un país");
                     List<Pais> lstPaises =  response.body();
                     for(Pais obj: lstPaises){
                         paises.add(obj.getIdPais() +":"+ obj.getNombre());
@@ -135,6 +169,8 @@ public class AutorRegistraActivity extends NewAppCompatActivity {
             @Override
             public void onResponse(Call<List<Grado>> call, Response<List<Grado>> response) {
                 if (response.isSuccessful()){
+                    grados.clear();
+                    grados.add("Seleccione un grado");
                     List<Grado> lst =  response.body();
                     for(Grado obj: lst){
                         grados.add(obj.getIdGrado() +":"+ obj.getDescripcion());
