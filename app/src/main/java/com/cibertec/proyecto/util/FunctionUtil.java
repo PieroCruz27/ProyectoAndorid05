@@ -26,13 +26,6 @@ public class FunctionUtil {
 		}
 
 
-
-	public static String getFechaActualStringDateTime() {
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-		return sdf.format(new Date());
-	}
-
-
 	public static String getFechaActualString() {
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		return sdf.format(new Date());
