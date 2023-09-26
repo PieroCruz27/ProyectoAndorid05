@@ -32,12 +32,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp">
+        android:layout_marginEnd="10dp"
+        android:background="@drawable/background_revista"
+        android:elevation="12dp">
 
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:padding="10dp">
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
@@ -47,22 +50,23 @@
 
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etNombre"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
 
-                    android:inputType="text"
-                    />
+                    android:inputType="text" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:inputType="text"
-                android:hint="@string/txt_frecuencia_revista">
+                android:hint="@string/txt_frecuencia_revista"
+                android:inputType="text">
 
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etFrecuencia"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -70,8 +74,8 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="180dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/button_revista"
                 android:hint="@string/txt_fechaCreacion_revista">
 
 
@@ -88,17 +92,34 @@
                 android:id="@+id/spnModalidad"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="4dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/spinner_revista"
                 android:minHeight="48dp"
+
                 android:padding="4dp" />
 
             <Spinner
                 android:id="@+id/spnPais"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="4dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/spinner_revista"
                 android:minHeight="48dp"
+
                 android:padding="4dp" />
+
+            <Button
+                android:id="@+id/btnRegistrar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="50dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/button_revista"
+                android:paddingVertical="20dp"
+                android:text="@string/registrar"
+                android:textSize="15sp"
+
+                />
         </androidx.appcompat.widget.LinearLayoutCompat>
     </ScrollView>
 </androidx.appcompat.widget.LinearLayoutCompat>

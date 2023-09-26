@@ -7,18 +7,25 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.cibertec.proyecto.R;
+import com.cibertec.proyecto.entity.Editorial;
 import com.cibertec.proyecto.entity.Modalidad;
 import com.cibertec.proyecto.entity.Pais;
+import com.cibertec.proyecto.entity.Revista;
 import com.cibertec.proyecto.service.ServiceModalidad;
 import com.cibertec.proyecto.service.ServicePais;
+import com.cibertec.proyecto.service.ServiceRevista;
 import com.cibertec.proyecto.util.ConnectionRest;
+import com.cibertec.proyecto.util.FunctionUtil;
 import com.cibertec.proyecto.util.NewAppCompatActivity;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -39,13 +46,22 @@ public class RevistaRegistraActivity extends NewAppCompatActivity {
     //Pais
     Spinner spnPais;
     ArrayAdapter<String> adapterPais;
-    ArrayList<String> paises = new ArrayList<String>();
+    ArrayList<String> paisesId = new ArrayList<String>();
+    ArrayList<String> paisesNombres = new ArrayList<String>();
     ServicePais servicePais;
-
+    //Modalidad
     Spinner spnModalidad;
     ArrayAdapter<String> adapterModalidad;
-    ArrayList<String> modalidades = new ArrayList<>();
+    ArrayList<String> modalidadesId = new ArrayList<>();
+    ArrayList<String> modalidadesNombres = new ArrayList<>();
     ServiceModalidad serviceModalidad;
+
+    //Revista
+    ServiceRevista serviceRevista;
+
+    //EditText
+    private EditText etNombre, etFrecuencia;
+    private Button btnRegistrar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,18 +69,86 @@ public class RevistaRegistraActivity extends NewAppCompatActivity {
 
         setContentView(R.layout.activity_revista_registra);
         fechaCreacionView();
-
+        //CONECCION SERVICIOS REST
         serviceModalidad = ConnectionRest.getConnection().create(ServiceModalidad.class);
-        adapterModalidad = new ArrayAdapter<String>(this, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item, modalidades);
+        serviceRevista = ConnectionRest.getConnection().create(ServiceRevista.class);
+        servicePais = ConnectionRest.getConnection().create(ServicePais.class);
+
+        adapterModalidad = new ArrayAdapter<String>(this, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item, modalidadesNombres);
         spnModalidad = findViewById(R.id.spnModalidad);
         spnModalidad.setAdapter(adapterModalidad);
         listaModalidades();
-        
-        servicePais = ConnectionRest.getConnection().create(ServicePais.class);
-        adapterPais = new ArrayAdapter<String>(this, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item, paises);
+
+        adapterPais = new ArrayAdapter<String>(this, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item, paisesNombres);
         spnPais = findViewById(R.id.spnPais);
         spnPais.setAdapter(adapterPais);
         listaPais();
+
+        etNombre = findViewById(R.id.etNombre);
+        etFrecuencia = findViewById(R.id.etFrecuencia);
+        etFechaCreacion = findViewById(R.id.etFechaCreacion);
+        spnModalidad = findViewById(R.id.spnModalidad);
+        spnPais = findViewById(R.id.spnPais);
+
+        btnRegistrar = findViewById(R.id.btnRegistrar);
+
+        btnRegistrar.setOnClickListener(view -> {
+                    String nombre = etNombre.getText().toString();
+                    String frecuencia = etFrecuencia.getText().toString();
+                    String fechaCreacion = etFechaCreacion.getText().toString();
+
+                    String idModalidad = modalidadesId.get((int) spnModalidad.getSelectedItemId());
+                    System.out.println("ID MODALIDADDDDDD : " + idModalidad);
+                    Modalidad objModalidad = new Modalidad();
+                    objModalidad.setIdModalidad(Integer.parseInt(idModalidad));
+                    System.out.println("ID OBJECT MODALIDADDDDDD : " + objModalidad.getIdModalidad());
+
+                    String idPais = paisesId.get((int) spnPais.getSelectedItemId());
+                    System.out.println("ID PAISSSS : " + idPais);
+                    Pais objPais = new Pais();
+                    objPais.setIdPais(Integer.parseInt(idPais));
+                    System.out.println("ID OBJECT PAISSSS : " + objPais.getIdPais());
+
+                    Revista objRevista = new Revista();
+                    objRevista.setNombre(nombre);
+                    objRevista.setFrecuencia(frecuencia);
+                    objRevista.setFechaCreacion(fechaCreacion);
+                    objRevista.setFechaRegistro(FunctionUtil.getFechaActualStringDateTime());
+                    objRevista.setEstado(FunctionUtil.ESTADO_ACTIVO);
+                    objRevista.setPais(objPais);
+                    objRevista.setModalidad(objModalidad);
+                    insertRevista(objRevista);
+
+
+                }
+
+        );
+    }
+
+    public void insertRevista(Revista obj) {
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        String json = gson.toJson(obj);
+        mensajeAlert(json);
+
+        Call<Revista> call = serviceRevista.insertRevista(obj);
+        call.enqueue(new Callback<Revista>() {
+            @Override
+            public void onResponse(Call<Revista> call, Response<Revista> response) {
+                if (response.isSuccessful()) {
+                    Revista revista = response.body();
+                    mensajeToastShort("¡REGISTRO EXITOSO!");
+
+                } else {
+
+                    mensajeToastLong("ERROR CON SERVICIO REST");
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Revista> call, Throwable t) {
+                mensajeToastLong("ERROR CON SERVICIO REST" + t.getMessage());
+            }
+        });
 
     }
 
@@ -76,7 +160,8 @@ public class RevistaRegistraActivity extends NewAppCompatActivity {
                 if (response.isSuccessful()) {
                     List<Modalidad> listModalidad = response.body();
                     for (Modalidad modalidad : listModalidad) {
-                        modalidades.add(modalidad.getDescripcion());
+                        modalidadesId.add(String.valueOf(modalidad.getIdModalidad()));
+                        modalidadesNombres.add(modalidad.getDescripcion());
                     }
                     adapterModalidad.notifyDataSetChanged();
 
@@ -100,7 +185,8 @@ public class RevistaRegistraActivity extends NewAppCompatActivity {
                 if (response.isSuccessful()) {
                     List<Pais> listaPais = response.body();
                     for (Pais pais : listaPais) {
-                        paises.add(pais.getNombre());
+                        paisesId.add(String.valueOf(pais.getIdPais()));
+                        paisesNombres.add(pais.getNombre());
                     }
                     adapterPais.notifyDataSetChanged();
                 } else {

@@ -46,6 +46,7 @@
     <string name="txt_fechaCreacion_revista">Fecha Creación</string>
     <string name="txt_modalidad_revista">Modalidad</string>
     <string name="txt_pais_revista">País</string>
+    <string name="registrar">registrar</string>
 
 
 </resources>
