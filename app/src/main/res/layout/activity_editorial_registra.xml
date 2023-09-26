@@ -6,16 +6,131 @@
     android:layout_height="match_parent"
     tools:context=".vista.registra.EditorialRegistraActivity"
     android:orientation="vertical"
-    android:padding="10dp"
-    >
+    android:padding="10dp">
 
-<ScrollView
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content">
+    <TextView
+        android:id="@+id/idTitlePage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:padding="10dp"
+        android:text="Registro de Editorial"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:padding="10dp"
+        android:text="Autor: Juan Ramos"
+        android:textAlignment="center"
+        android:textSize="12sp"
+        android:textStyle="normal" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="3dp"
+        android:padding="3dp"
+        android:text="Razón Social"
+        android:textSize="12sp"
+        android:textStyle="normal"
+        android:drawableLeft="@drawable/baseline_account_circle_24"/>
+    <EditText
+        android:id="@+id/txtRazonSocial"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="3dp"
+        android:padding="3dp" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="3dp"
+        android:padding="3dp"
+        android:text="Dirección"
+        android:textSize="12sp"
+        android:textStyle="normal"
+        android:drawableLeft="@drawable/baseline_location_on_24"
+        />
+    <EditText
+        android:id="@+id/txtDireccion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="3dp"
+        android:padding="3dp"
 
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="3dp"
+        android:padding="3dp"
+        android:text="Ruc"
+        android:textSize="12sp"
+        android:textStyle="normal"
+        android:drawableLeft="@drawable/baseline_app_registration_24"/>
+    <EditText
+        android:id="@+id/txtRuc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="3dp"
+        android:padding="3dp"
+        android:inputType="number"
+        android:maxLength="11"
 
-
-</ScrollView>
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="3dp"
+        android:padding="3dp"
+        android:text="Fecha Creación"
+        android:textSize="12sp"
+        android:textStyle="normal"
+        android:drawableLeft="@drawable/baseline_calendar_month_24"/>
+    <EditText
+        android:id="@+id/txtFechaCreacion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="3dp"
+        android:padding="3dp"
+        android:inputType="date" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="3dp"
+        android:padding="3dp"
+        android:text="País" />
+    <Spinner
+        android:id="@+id/spnPais"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="3dp"
+        android:padding="3dp"
+        android:minHeight="48dp"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="4dp"
+        android:padding="4dp"
+        android:text="Categoría" />
+    <Spinner
+        android:id="@+id/spnCategoria"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="4dp"
+        android:padding="4dp"
+        android:minHeight="48dp"
+        />
+    <Button
+        android:id="@+id/btnEnviar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="4dp"
+        android:padding="4dp"
+        android:text="Registrar Editorial"
+        android:textColor="@color/white"/>
 
 
 

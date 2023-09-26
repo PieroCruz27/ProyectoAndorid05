@@ -17,7 +17,110 @@
         android:textAlignment="center"
         android:textSize="18sp"
         android:textStyle="bold" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="3dp"
+        android:padding="3dp"
+        android:text="Nombres"
+        android:textAlignment="center" />
 
+    <EditText
+        android:id="@+id/txtRegEdiNombres"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="3dp"
+        android:padding="3dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="3dp"
+        android:padding="3dp"
+        android:text="Apellidos"
+        android:textAlignment="center" />
+
+    <EditText
+        android:id="@+id/txtRegEdiApellidos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="3dp"
+        android:padding="3dp" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="3dp"
+        android:padding="3dp"
+        android:text="Correo"
+        android:textAlignment="center" />
+
+    <EditText
+        android:id="@+id/txtRegEdiCorreo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="3dp"
+        android:padding="3dp" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="3dp"
+        android:padding="3dp"
+        android:text="Fecha Nacimiento"
+        android:textAlignment="center" />
+
+    <EditText
+        android:id="@+id/txtRegEdiFechaNacimiento"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="3dp"
+        android:padding="3dp"
+        android:inputType="date"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="3dp"
+        android:padding="3dp"
+        android:text="País" />
+    <Spinner
+        android:id="@+id/spnRegEdiPais"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="3dp"
+        android:padding="3dp"
+        android:minHeight="48dp"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="4dp"
+        android:padding="4dp"
+        android:text="Grado" />
+    <Spinner
+        android:id="@+id/spnRegEdiGrado"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="4dp"
+        android:padding="4dp"
+        android:minHeight="48dp"
+        />
+    <Button
+        android:id="@+id/btnRegEdiEnviar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="4dp"
+        android:padding="4dp"
+        android:text="Registrar" />
+    <TextView
+        android:id="@+id/idAutorPage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:padding="10dp"
+        android:text="Autor: Esteffany Huamanraime"
+        android:textAlignment="center"
+        android:textSize="12sp"
+        android:textStyle="bold" />
 
 
 </androidx.appcompat.widget.LinearLayoutCompat>
