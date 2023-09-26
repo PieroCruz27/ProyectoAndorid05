@@ -2,6 +2,8 @@
     <string name="app_name">2023-02 MARTES G-02</string>
     <string name="txt_grupo">MARTES GRUPO-02</string>
 
+    <string name="solorzano">Autor: Sam Lenny Solorzano Melendez</string>
+
     <string name="txt_registro_de_alumno">Registro de Alumno</string>
     <string name="txt_registro_de_autor">Registro de Autor</string>
     <string name="txt_registro_de_editorial">Registro de Editorial</string>
@@ -38,6 +40,13 @@
     <string name="txt_menu_revista">Revista</string>
     <string name="txt_menu_sala">Sala</string>
     <string name="txt_menu_usuario">Usuario</string>
+
+    <string name="txt_nombre_revista">Nombre</string>
+    <string name="txt_frecuencia_revista">Frecuencia</string>
+    <string name="txt_fechaCreacion_revista">Fecha Creación</string>
+    <string name="txt_modalidad_revista">Modalidad</string>
+    <string name="txt_pais_revista">País</string>
+    <string name="registrar">registrar</string>
 
 
 </resources>
