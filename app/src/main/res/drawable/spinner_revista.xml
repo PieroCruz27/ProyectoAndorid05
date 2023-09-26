@@ -9,7 +9,7 @@
                     <padding android:right="10dp" />
                 </shape>
             </item>
-            <item android:gravity="center|end" android:drawable="@drawable/ic_down_spinner">
+            <item android:gravity="center|end" android:drawable="@drawable/ic_check_spinner">
 
             </item>
         </layer-list>

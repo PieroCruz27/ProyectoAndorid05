@@ -1,11 +1,14 @@
 package com.cibertec.proyecto.vista.registra;
 
+import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
+import android.content.Context;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -63,6 +66,7 @@ public class RevistaRegistraActivity extends NewAppCompatActivity {
     private EditText etNombre, etFrecuencia;
     private Button btnRegistrar;
 
+    @SuppressLint("ResourceType")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -74,15 +78,18 @@ public class RevistaRegistraActivity extends NewAppCompatActivity {
         serviceRevista = ConnectionRest.getConnection().create(ServiceRevista.class);
         servicePais = ConnectionRest.getConnection().create(ServicePais.class);
 
-        adapterModalidad = new ArrayAdapter<String>(this, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item, modalidadesNombres);
+
+        //LISTADO DE SPINNERS
+        adapterModalidad = new ArrayAdapter<String>(this, R.drawable.spinner_item_revista, modalidadesNombres);
         spnModalidad = findViewById(R.id.spnModalidad);
         spnModalidad.setAdapter(adapterModalidad);
         listaModalidades();
 
-        adapterPais = new ArrayAdapter<String>(this, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item, paisesNombres);
+        adapterPais = new ArrayAdapter<String>(this, R.drawable.spinner_item_revista, paisesNombres);
         spnPais = findViewById(R.id.spnPais);
         spnPais.setAdapter(adapterPais);
         listaPais();
+
 
         etNombre = findViewById(R.id.etNombre);
         etFrecuencia = findViewById(R.id.etFrecuencia);
@@ -117,9 +124,12 @@ public class RevistaRegistraActivity extends NewAppCompatActivity {
                     objRevista.setEstado(FunctionUtil.ESTADO_ACTIVO);
                     objRevista.setPais(objPais);
                     objRevista.setModalidad(objModalidad);
-                    insertRevista(objRevista);
-
-
+                    if (objRevista.getNombre().isEmpty() || objRevista.getFrecuencia().isEmpty() || objRevista.getFechaRegistro().isEmpty()) {
+                        mensajeAlert("Por favor, complete todos los campos antes de continuar.");
+                    } else {
+                        insertRevista(objRevista);
+                        closeTeclado(view);
+                    }
                 }
 
         );
@@ -128,7 +138,6 @@ public class RevistaRegistraActivity extends NewAppCompatActivity {
     public void insertRevista(Revista obj) {
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         String json = gson.toJson(obj);
-        mensajeAlert(json);
 
         Call<Revista> call = serviceRevista.insertRevista(obj);
         call.enqueue(new Callback<Revista>() {
@@ -137,6 +146,7 @@ public class RevistaRegistraActivity extends NewAppCompatActivity {
                 if (response.isSuccessful()) {
                     Revista revista = response.body();
                     mensajeToastShort("¡REGISTRO EXITOSO!");
+                    limpiarFormulario();
 
                 } else {
 
@@ -152,6 +162,21 @@ public class RevistaRegistraActivity extends NewAppCompatActivity {
 
     }
 
+    public void limpiarFormulario() {
+        etNombre.setText("");
+        etFrecuencia.setText("");
+        etFechaCreacion.setText("");
+        spnPais.setSelection(0, true);
+        spnModalidad.setSelection(0, true);
+    }
+
+    public void closeTeclado(View v) {
+        InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+
+        // Oculta el teclado virtual
+        imm.hideSoftInputFromWindow(v.getWindowToken(), 0);
+    }
+
     private void listaModalidades() {
         Call<List<Modalidad>> callModalidad = serviceModalidad.listaTodos();
         callModalidad.enqueue(new Callback<List<Modalidad>>() {
@@ -159,6 +184,7 @@ public class RevistaRegistraActivity extends NewAppCompatActivity {
             public void onResponse(Call<List<Modalidad>> call, Response<List<Modalidad>> response) {
                 if (response.isSuccessful()) {
                     List<Modalidad> listModalidad = response.body();
+
                     for (Modalidad modalidad : listModalidad) {
                         modalidadesId.add(String.valueOf(modalidad.getIdModalidad()));
                         modalidadesNombres.add(modalidad.getDescripcion());

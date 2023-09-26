@@ -10,7 +10,7 @@ public class MainActivity extends NewAppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_libro_registra);
+        setContentView(R.layout.activity_main);
 
 
     }

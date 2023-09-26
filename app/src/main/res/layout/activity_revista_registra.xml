@@ -42,40 +42,84 @@
             android:orientation="vertical"
             android:padding="10dp">
 
-            <com.google.android.material.textfield.TextInputLayout
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:hint="@string/txt_nombre_revista">
+                android:layout_height="wrap_content">
 
+                <ImageView
+                    android:id="@+id/ivNombre"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginEnd="10dp"
+                    android:contentDescription="Person Name"
+                    android:src="@drawable/ic_book_revista" />
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/etNombre"
+                <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
 
-                    android:inputType="text" />
-            </com.google.android.material.textfield.TextInputLayout>
+                    android:layout_marginTop="10dp"
+                    android:layout_toEndOf="@id/ivNombre"
+                    android:hint="@string/txt_nombre_revista">
 
-            <com.google.android.material.textfield.TextInputLayout
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etNombre"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="text" />
+                </com.google.android.material.textfield.TextInputLayout>
+            </RelativeLayout>
+
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:hint="@string/txt_frecuencia_revista"
-                android:inputType="text">
+                android:layout_height="wrap_content">
 
+                <ImageView
+                    android:id="@+id/ivFrecuencia"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginEnd="10dp"
+                    android:contentDescription="Person Name"
+                    android:src="@drawable/ic_frecuencia_revista" />
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/etFrecuencia"
+                <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-            </com.google.android.material.textfield.TextInputLayout>
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_toEndOf="@id/ivFrecuencia"
+                    android:hint="@string/txt_frecuencia_revista"
+                    android:inputType="text">
 
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etFrecuencia"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                </com.google.android.material.textfield.TextInputLayout>
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/ivFechaCreacion"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_alignParentStart="true"
+                android:layout_marginTop="25dp"
+                android:layout_marginEnd="10dp"
+                android:contentDescription="Person Name"
+                android:src="@drawable/ic_fechacreac_revista" />
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:background="@drawable/button_revista"
+                android:layout_toEndOf="@id/ivFechaCreacion"
                 android:hint="@string/txt_fechaCreacion_revista">
 
 
@@ -87,26 +131,56 @@
                     android:focusable="false"
                     android:inputType="date" />
             </com.google.android.material.textfield.TextInputLayout>
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
+            <ImageView
+                android:id="@+id/ivModalidad"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_alignParentStart="true"
+                android:layout_marginTop="25dp"
+                android:layout_marginEnd="10dp"
+                android:contentDescription="Person Name"
+                android:src="@drawable/ic_modalidad_revista" />
             <Spinner
                 android:id="@+id/spnModalidad"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
+
+                android:layout_toEndOf="@id/ivModalidad"
                 android:background="@drawable/spinner_revista"
                 android:minHeight="48dp"
 
                 android:padding="4dp" />
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
+            <ImageView
+                android:id="@+id/ivPais"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_alignParentStart="true"
+                android:layout_marginTop="25dp"
+                android:layout_marginEnd="10dp"
+                android:contentDescription="Person Name"
+                android:src="@drawable/ic_pais_revista" />
             <Spinner
                 android:id="@+id/spnPais"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_toEndOf="@id/ivPais"
                 android:layout_marginTop="20dp"
                 android:background="@drawable/spinner_revista"
                 android:minHeight="48dp"
 
                 android:padding="4dp" />
+            </RelativeLayout>
 
             <Button
                 android:id="@+id/btnRegistrar"

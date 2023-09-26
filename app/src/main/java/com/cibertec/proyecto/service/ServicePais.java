@@ -11,12 +11,7 @@ public interface ServicePais {
 
     @GET("util/listaPais")
     public Call<List<Pais>> listaTodos();
-
-
-    public Call<List<Pais>> listaTodos();
-
-    public  Call<List<Pais>> listaTodos();
-  
+    @GET("util/listaPais")
     public Call<List<Pais>> listaPais();
 
 }
