@@ -19,3 +19,6 @@
 .externalNativeBuild
 .cxx
 local.properties
+gradle.properties
+build.gradle
+/gradle/*
