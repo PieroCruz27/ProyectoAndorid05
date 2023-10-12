@@ -83,6 +83,4 @@ public class Editorial {
         this.categoria = categoria;
     }
 
-
-
 }

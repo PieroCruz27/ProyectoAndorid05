@@ -12,11 +12,35 @@
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
         android:padding="10dp"
-        android:text="@string/txt_consulta_de_editorial"
+        android:text="Consulta de Editorial"
         android:textAlignment="center"
         android:textSize="18sp"
         android:textStyle="bold" />
 
-
-
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:padding="5dp"
+        android:text="Editorial"
+        android:textAlignment="center" />
+    <EditText
+        android:id="@+id/txtEditorialNombre"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:padding="5dp" />
+    <Button
+        android:id="@+id/btnLista"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:padding="5dp"
+        android:text="Listar" />
+    <ListView
+        android:id="@+id/lstEditorial"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:padding="5dp"/>
 </androidx.appcompat.widget.LinearLayoutCompat>
