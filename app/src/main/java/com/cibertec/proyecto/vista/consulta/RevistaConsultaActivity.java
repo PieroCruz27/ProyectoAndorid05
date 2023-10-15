@@ -37,7 +37,23 @@ public class RevistaConsultaActivity extends NewAppCompatActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_revista_consulta);
+        txtNombre = findViewById(R.id.txtNombreRevista);
 
+        listConsulta = findViewById(R.id.lstRevista);
+        adaptador = new RevistaAdapter(this, R.layout.activity_revista_item_nombre,data);
+        listConsulta.setAdapter(adaptador);
+
+        service= ConnectionRest.getConnection().create(ServiceRevista.class);
+
+        btnFiltrar = findViewById(R.id.btnListaRevista);
+
+        btnFiltrar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String filtro = txtNombre.getText().toString();
+                consulta(filtro);
+            }
+        });
 
     }
 
