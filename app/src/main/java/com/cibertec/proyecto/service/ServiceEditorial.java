@@ -17,5 +17,5 @@ public interface ServiceEditorial {
 
    //Para el listar registrarS
     @GET("editorial/porNombre/{nombre}")
-    public Call<List<Editorial>> listaPorNombre(@Path("nombre")String nombre);
+    public Call<List<Editorial>>listaPorNombre(@Path("nombre")String nombre);
 }

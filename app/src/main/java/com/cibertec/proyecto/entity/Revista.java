@@ -3,7 +3,7 @@ package com.cibertec.proyecto.entity;
 import java.util.Date;
 
 public class Revista {
-    private int idRevisa;
+    private int idRevista;
     private String nombre;
     private String frecuencia;
     private String fechaCreacion;
@@ -13,11 +13,11 @@ public class Revista {
     private Pais pais;
 
     public int getIdRevisa() {
-        return idRevisa;
+        return idRevista;
     }
 
     public void setIdRevisa(int idRevisa) {
-        this.idRevisa = idRevisa;
+        this.idRevista = idRevisa;
     }
 
     public String getNombre() {
