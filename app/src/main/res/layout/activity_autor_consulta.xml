@@ -22,6 +22,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:padding="10dp"
+        android:hint="Escribe el nombre del autor"
         />
     <Button
         android:id="@+id/btnListaAutor"

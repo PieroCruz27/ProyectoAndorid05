@@ -39,7 +39,7 @@ public class AutorConsultaActivity extends NewAppCompatActivity {
         btnListaAutor = findViewById(R.id.btnListaAutor);
         lstAutor = findViewById(R.id.lstAutor);
         txtNombresAutor = findViewById(R.id.txtNombresAutor);
-        adaptador = new AutorAdapter(this, R.layout.activity_item_autor_nombre, data);
+        adaptador = new AutorAdapter(this, R.layout.activity_autor_item_nombre, data);
         lstAutor.setAdapter(adaptador);
 
         serviceAutor = ConnectionRest.getConnection().create(ServiceAutor.class);

@@ -5,13 +5,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import com.bumptech.glide.Glide;
 import com.cibertec.proyecto.R;
 import com.cibertec.proyecto.entity.Autor;
 
@@ -32,18 +30,15 @@ public class AutorAdapter extends ArrayAdapter<Autor>  {
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
-        View row = inflater.inflate(R.layout.activity_item_autor_nombre, parent, false);
+        View row = inflater.inflate(R.layout.activity_autor_item_nombre, parent, false);
 
         Autor objAutor = lista.get(position);
 
         TextView txtID = row.findViewById(R.id.txtIdAutor);
         txtID.setText(String.valueOf(objAutor.getIdAutor()));
 
-        TextView txtNombresAutor = row.findViewById(R.id.txtNombresAutor);
-        txtNombresAutor.setText(objAutor.getNombres());
-
-        TextView txtApellidosAutor = row.findViewById(R.id.txtApellidosAutor);
-        txtApellidosAutor.setText(objAutor.getApellidos());
+        TextView txtNombreApellidoAutor = row.findViewById(R.id.txtNombreApellidoAutor);
+        txtNombreApellidoAutor.setText(objAutor.getNombres() + " " +objAutor.getApellidos() );
 
         TextView txtCorreoAutor = row.findViewById(R.id.txtCorreoAutor);
         txtCorreoAutor.setText(objAutor.getCorreo());
