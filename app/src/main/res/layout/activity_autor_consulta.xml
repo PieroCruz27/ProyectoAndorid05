@@ -16,7 +16,29 @@
         android:textAlignment="center"
         android:textSize="18sp"
         android:textStyle="bold" />
-
+    <EditText
+        android:id="@+id/txtNombresAutor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:padding="10dp"
+        android:hint="Escribe el nombre del autor"
+        />
+    <Button
+        android:id="@+id/btnListaAutor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Buscar"
+        android:layout_margin="10dp"
+        android:padding="10dp"
+        />
+    <ListView
+        android:id="@+id/lstAutor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin ="5dp"
+        android:padding="5dp"
+        />
 
 
 </androidx.appcompat.widget.LinearLayoutCompat>

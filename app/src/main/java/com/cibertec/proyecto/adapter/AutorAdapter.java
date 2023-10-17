@@ -1,10 +1,16 @@
 package com.cibertec.proyecto.adapter;
 
 import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
+import com.cibertec.proyecto.R;
 import com.cibertec.proyecto.entity.Autor;
 
 import java.util.List;
@@ -20,4 +26,28 @@ public class AutorAdapter extends ArrayAdapter<Autor>  {
         this.lista = lista;
     }
 
+    @NonNull
+    @Override
+    public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+        LayoutInflater inflater = (LayoutInflater) context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
+        View row = inflater.inflate(R.layout.activity_autor_item_nombre, parent, false);
+
+        Autor objAutor = lista.get(position);
+
+        TextView txtID = row.findViewById(R.id.txtIdAutor);
+        txtID.setText(String.valueOf(objAutor.getIdAutor()));
+
+        TextView txtNombreApellidoAutor = row.findViewById(R.id.txtNombreApellidoAutor);
+        txtNombreApellidoAutor.setText(objAutor.getNombres() + " " +objAutor.getApellidos() );
+
+        TextView txtCorreoAutor = row.findViewById(R.id.txtCorreoAutor);
+        txtCorreoAutor.setText(objAutor.getCorreo());
+
+        TextView txtGradoDescripcionAutor = row.findViewById(R.id.txtGradoDescripcionAutor);
+        txtGradoDescripcionAutor.setText(objAutor.getGrado().getDescripcion());
+
+        TextView txtPaisNombreAutor = row.findViewById(R.id.txtPaisNombreAutor);
+        txtPaisNombreAutor.setText(objAutor.getPais().getNombre());
+        return row;
+    }
 }
