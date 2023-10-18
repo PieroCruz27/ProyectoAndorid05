@@ -38,16 +38,16 @@ public class AutorAdapter extends ArrayAdapter<Autor>  {
         txtID.setText(String.valueOf(objAutor.getIdAutor()));
 
         TextView txtNombreApellidoAutor = row.findViewById(R.id.txtNombreApellidoAutor);
-        txtNombreApellidoAutor.setText(objAutor.getNombres() + " " +objAutor.getApellidos() );
+        txtNombreApellidoAutor.setText("Nombre : " + objAutor.getNombres() + " " +objAutor.getApellidos() );
 
         TextView txtCorreoAutor = row.findViewById(R.id.txtCorreoAutor);
-        txtCorreoAutor.setText(objAutor.getCorreo());
+        txtCorreoAutor.setText("Correo : " + objAutor.getCorreo());
 
         TextView txtGradoDescripcionAutor = row.findViewById(R.id.txtGradoDescripcionAutor);
-        txtGradoDescripcionAutor.setText(objAutor.getGrado().getDescripcion());
+        txtGradoDescripcionAutor.setText("Grado : " + objAutor.getGrado().getDescripcion());
 
         TextView txtPaisNombreAutor = row.findViewById(R.id.txtPaisNombreAutor);
-        txtPaisNombreAutor.setText(objAutor.getPais().getNombre());
+        txtPaisNombreAutor.setText("Pais :" + objAutor.getPais().getNombre());
         return row;
     }
 }
