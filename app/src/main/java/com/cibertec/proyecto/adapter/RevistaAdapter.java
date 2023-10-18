@@ -36,22 +36,22 @@ public class RevistaAdapter extends ArrayAdapter<Revista> {
         Revista obj = lista.get(position);
         //ID EDITORIAL
         TextView tvID = row.findViewById(R.id.tvIdRevistaItem);
-        tvID.setText(String.valueOf(obj.getIdRevisa()));
+        tvID.setText("ID:"+String.valueOf(obj.getIdRevisa()));
         //NOMBRES
         TextView tvNombre = row.findViewById(R.id.tvNombreRevistaItem);
-        tvNombre.setText(String.valueOf(obj.getNombre()));
+        tvNombre.setText("Nombre: "+String.valueOf(obj.getNombre()));
         //FRECUENCIA
         TextView tvFrecuencia = row.findViewById(R.id.tvFrecuenciaItem);
-        tvFrecuencia.setText(String.valueOf(obj.getFrecuencia()));
+        tvFrecuencia.setText("Frecuencia: "+String.valueOf(obj.getFrecuencia()));
         //FECHA CREACION
         TextView tvCreacion = row.findViewById(R.id.tvCreacionRevistaItem);
-        tvCreacion.setText(String.valueOf(obj.getFechaCreacion()));
+        tvCreacion.setText("Creación: "+String.valueOf(obj.getFechaCreacion()));
         //MODALIDAD
         TextView tvModalidad = row.findViewById(R.id.tvModalidadRevistaItem);
-        tvModalidad.setText(String.valueOf(obj.getModalidad().getDescripcion()));
+        tvModalidad.setText("Modalidad: "+String.valueOf(obj.getModalidad().getDescripcion()));
         //PAIS
         TextView tvPais = row.findViewById(R.id.tvPaisRevistaItem);
-        tvPais.setText(String.valueOf(obj.getPais().getNombre()));
+        tvPais.setText("País: "+String.valueOf(obj.getPais().getNombre()));
         return row;
     }
 }
