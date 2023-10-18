@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".vista.consulta.SalaConsultaActivity"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:layout_margin="10dp">
 
     <TextView
         android:layout_width="match_parent"
@@ -16,6 +17,29 @@
         android:textAlignment="center"
         android:textSize="18sp"
         android:textStyle="bold" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:id="@+id/idTxtSalaConsulta"
+        />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Filtrar"
+        android:padding="10dp"
+        android:id="@+id/idBtnSalaConsulta"
+        />
+
+    <ListView
+        android:id="@+id/idLstSalaConsulta"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="10dp"
+
+        />
 
 
 </androidx.appcompat.widget.LinearLayoutCompat>
