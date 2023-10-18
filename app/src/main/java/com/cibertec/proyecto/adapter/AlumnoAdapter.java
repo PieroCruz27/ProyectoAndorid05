@@ -40,16 +40,16 @@ public class AlumnoAdapter extends ArrayAdapter<Alumno>  {
         txtID.setText(String.valueOf(objAlumno.getIdAlumno()));
 
         TextView txtNombre = row.findViewById(R.id.itemNombreAlumno);
-        txtNombre.setText(String.valueOf(objAlumno.getNombres()));
+        txtNombre.setText("Nombre: " + objAlumno.getNombres());
 
         TextView txtApellido = row.findViewById(R.id.itemApellidoAlumno);
-        txtApellido.setText(String.valueOf(objAlumno.getApellidos()));
+        txtApellido.setText("Apellido: " +objAlumno.getApellidos());
 
         TextView txtTelefono = row.findViewById(R.id.itemTelefonoAlumno);
-        txtTelefono.setText(String.valueOf(objAlumno.getTelefono()));
+        txtTelefono.setText("Telèfono: " +objAlumno.getTelefono());
 
         TextView txtPais = row.findViewById(R.id.itemPaisnNomAlumno);
-        txtPais.setText(String.valueOf(objAlumno.getPais().getNombre()));
+        txtPais.setText("Pais: "+objAlumno.getPais().getNombre());
 
         return row;
 
