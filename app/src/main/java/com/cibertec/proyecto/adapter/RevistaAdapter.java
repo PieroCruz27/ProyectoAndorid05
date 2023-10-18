@@ -45,7 +45,7 @@ public class RevistaAdapter extends ArrayAdapter<Revista> {
         tvFrecuencia.setText("Frecuencia: "+String.valueOf(obj.getFrecuencia()));
         //FECHA CREACION
         TextView tvCreacion = row.findViewById(R.id.tvCreacionRevistaItem);
-        tvCreacion.setText("Creación: "+String.valueOf(obj.getFechaCreacion()));
+        tvCreacion.setText("Fecha Creación: "+String.valueOf(obj.getFechaCreacion()));
         //MODALIDAD
         TextView tvModalidad = row.findViewById(R.id.tvModalidadRevistaItem);
         tvModalidad.setText("Modalidad: "+String.valueOf(obj.getModalidad().getDescripcion()));
