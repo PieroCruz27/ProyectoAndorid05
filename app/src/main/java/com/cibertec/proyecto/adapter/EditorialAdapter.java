@@ -37,19 +37,19 @@ public class EditorialAdapter extends ArrayAdapter<Editorial>  {
         Editorial obj = lista.get(position);
         //ID EDITORIAL
         TextView txtID = row.findViewById(R.id.IdEditorial);
-        txtID.setText(String.valueOf(obj.getIdEditorial()));
+        txtID.setText("ID : "+String.valueOf(obj.getIdEditorial()));
         //NOMBRE-RAZON SOCIAL
         TextView txtNombre = row.findViewById(R.id.NombreEditorial);
-        txtNombre.setText(String.valueOf(obj.getRazonSocial()));
+        txtNombre.setText("Nombre : "+String.valueOf(obj.getRazonSocial()));
         //PAIS
         TextView txtPais = row.findViewById(R.id.PaisEditorial);
-        txtPais.setText(String.valueOf(obj.getPais().getNombre()));
+        txtPais.setText("País : "+String.valueOf(obj.getPais().getNombre()));
         //CATEGORIA
         TextView txtCategoria = row.findViewById(R.id.CategoriaEditorial);
-        txtCategoria.setText(String.valueOf(obj.getCategoria().getDescripcion()));
+        txtCategoria.setText("Categoría : "+String.valueOf(obj.getCategoria().getDescripcion()));
         //FECHA CREACION
         TextView txtCreacion = row.findViewById(R.id.CreacionEditorial);
-        txtCreacion.setText(String.valueOf(obj.getFechaCreacion()));
+        txtCreacion.setText("Fecha Creación : "+String.valueOf(obj.getFechaCreacion()));
         return row;
     }
 }
