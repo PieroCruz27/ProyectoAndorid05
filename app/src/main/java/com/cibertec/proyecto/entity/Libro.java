@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class Libro {
 
+        private int idLibro;
         private String titulo;
         private String anio;
         private String serie;
@@ -11,6 +12,14 @@ public class Libro {
         private int estado;
         private Pais pais;
         private Categoria categoria;
+
+    public int getIdLibro() {
+        return idLibro;
+    }
+
+    public void setIdLibro(int idLibro) {
+        this.idLibro = idLibro;
+    }
 
     public String getTitulo() {
         return titulo;
