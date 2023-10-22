@@ -17,6 +17,47 @@
         android:textSize="18sp"
         android:textStyle="bold" />
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:padding="2dp"
+        android:text="Autor: Celso Dennis Rodriguez Pacora"
+        android:textAlignment="center"
+        android:textSize="12sp"
+        android:textStyle="normal" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="4dp"
+        android:padding="4dp"
+        android:text="Titulo"
+        android:textAlignment="center" />
+
+    <EditText
+        android:id="@+id/txtConsultar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:padding="8dp"
+        android:hint="Escribe el titulo del Libro"
+        android:textSize="15sp"/>
+
+    <Button
+        android:id="@+id/btnConsultar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="4dp"
+        android:padding="4dp"
+        android:text="Consultar" />
+
+    <ListView
+        android:id="@+id/lstConsultaLibro"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="4dp"
+        android:padding="4dp"
+        />
 
 </androidx.appcompat.widget.LinearLayoutCompat>
