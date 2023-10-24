@@ -46,7 +46,7 @@ public class AutorConsultaActivity extends NewAppCompatActivity {
         btnListaAutor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                listaAutores(txtNombresAutor.getText().toString());
+                listaAutores(txtNombresAutor.getText().toString().trim());
             }
         });
 
