@@ -40,6 +40,9 @@ public class AutorAdapter extends ArrayAdapter<Autor>  {
         TextView txtNombreApellidoAutor = row.findViewById(R.id.txtNombreApellidoAutor);
         txtNombreApellidoAutor.setText("Nombre : " + objAutor.getNombres() + " " +objAutor.getApellidos() );
 
+        TextView txtTelefonoAutor = row.findViewById(R.id.txtTelefonoAutor);
+        txtTelefonoAutor.setText("Teléfono : " + objAutor.getTelefono() );
+
         TextView txtCorreoAutor = row.findViewById(R.id.txtCorreoAutor);
         txtCorreoAutor.setText("Correo : " + objAutor.getCorreo());
 
