@@ -1,9 +1,11 @@
 package com.cibertec.proyecto.entity;
 
 
+import java.io.Serializable;
+
 import retrofit2.http.GET;
 
-public class Autor {
+public class Autor  implements Serializable {
     private int idAutor;
     private String nombres;
     private String apellidos;

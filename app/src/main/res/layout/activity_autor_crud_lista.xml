@@ -17,7 +17,25 @@
         android:textAlignment="center"
         android:textSize="18sp"
         android:textStyle="bold" />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/idCrudAutorLista"
+        android:text="Lista"
+        android:padding="10dp"/>
 
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/idCrudAutorRegistra"
+        android:text="Registra"
+        android:padding="10dp"/>
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/idCrudAutorListView"
+        android:padding="10dp" />
 
 
 </androidx.appcompat.widget.LinearLayoutCompat>
