@@ -1,6 +1,8 @@
 package com.cibertec.proyecto.entity;
 
-public class Pais {
+import java.io.Serializable;
+
+public class Pais implements Serializable {
     private int idPais;
     private String nombre;
     private String iso;
