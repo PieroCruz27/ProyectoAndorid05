@@ -18,6 +18,29 @@
         android:textSize="18sp"
         android:textStyle="bold" />
 
+      <Button
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:id="@+id/idCrudSalaLista"
+          android:text="Lista"
+          android:padding="10dp"/>
+
+      <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/idCrudSalaRegistra"
+            android:text="Registra"
+            android:padding="10dp"/>
+
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/idCrudSalaListView"
+            android:padding="10dp" />
+
+
+
+
 
 
 

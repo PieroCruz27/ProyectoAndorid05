@@ -1,6 +1,8 @@
 package com.cibertec.proyecto.entity;
 
-public class Sala {
+import java.io.Serializable;
+
+public class Sala implements Serializable {
     private int idSala;
     private String numero;
     private int piso;
