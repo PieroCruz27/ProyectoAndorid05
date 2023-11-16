@@ -19,6 +19,7 @@ import java.util.List;
 public class EditorialAdapter extends ArrayAdapter<Editorial>  {
 
     private Context context;
+
     private List<Editorial> lista;
 
     public EditorialAdapter(@NonNull Context context, int resource, @NonNull List<Editorial> lista) {
