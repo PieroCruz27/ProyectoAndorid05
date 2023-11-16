@@ -2,7 +2,9 @@ package com.cibertec.proyecto.entity;
 
 import java.io.Serializable;
 
+
 public class Categoria  implements Serializable {
+
 
     private int idCategoria;
     private String  descripcion;

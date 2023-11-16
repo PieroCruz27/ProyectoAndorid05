@@ -1,6 +1,8 @@
 package com.cibertec.proyecto.entity;
 
-public class Modalidad {
+import java.io.Serializable;
+
+public class Modalidad implements Serializable {
 
     private int idModalidad;
     private String  descripcion;
