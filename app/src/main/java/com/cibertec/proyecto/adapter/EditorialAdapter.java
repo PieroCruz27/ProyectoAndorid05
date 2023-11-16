@@ -34,13 +34,14 @@ public class EditorialAdapter extends ArrayAdapter<Editorial>  {
         //SE RELACIONA CON EL activity_editorial_item_nombre
         View row = inflater.inflate(R.layout.activity_editorial_item_nombre, parent, false);
 
+
         Editorial obj = lista.get(position);
         //ID EDITORIAL
         TextView txtID = row.findViewById(R.id.IdEditorial);
         txtID.setText("ID : "+String.valueOf(obj.getIdEditorial()));
         //NOMBRE-RAZON SOCIAL
         TextView txtNombre = row.findViewById(R.id.NombreEditorial);
-        txtNombre.setText("Nombre : "+String.valueOf(obj.getRazonSocial()));
+        txtNombre.setText("Razon Social : "+String.valueOf(obj.getRazonSocial()));
         //PAIS
         TextView txtPais = row.findViewById(R.id.PaisEditorial);
         txtPais.setText("País : "+String.valueOf(obj.getPais().getNombre()));
@@ -52,4 +53,6 @@ public class EditorialAdapter extends ArrayAdapter<Editorial>  {
         txtCreacion.setText("Fecha Creación : "+String.valueOf(obj.getFechaCreacion()));
         return row;
     }
+
+
 }
