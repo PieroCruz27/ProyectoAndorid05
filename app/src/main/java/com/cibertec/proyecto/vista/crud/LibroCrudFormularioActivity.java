@@ -84,11 +84,11 @@ public class LibroCrudFormularioActivity extends NewAppCompatActivity {
         categoriaService = ConnectionRest.getConnection().create(ServiceCategoria.class);
 
         Bundle extras = getIntent().getExtras();
-        String tipo = (String)extras.get("var tipo");
+        tipo = (String)extras.get("var_tipo");
         txtPrincipal.setText(txtPrincipal.getText() + " - " + tipo );
 
         if(tipo.equals("Actualizar")) {
-            Libro objLibroSeleccionado = (Libro) extras.get("var_seleccionado");
+            objLibroSeleccionado = (Libro) extras.get("var_seleccionado");
             txtCrudTitulo.setText(objLibroSeleccionado.getTitulo());
             txtCrudAnio.setText(String.valueOf(objLibroSeleccionado.getAnio()));
             txtCrudSerie.setText(objLibroSeleccionado.getSerie());
