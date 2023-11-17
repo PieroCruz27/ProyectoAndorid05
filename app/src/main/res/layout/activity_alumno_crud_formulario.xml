@@ -23,7 +23,8 @@
                 android:text="@string/txt_crud_de_alumno"
                 android:textAlignment="center"
                 android:textSize="18sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:id="@+id/txtCrudTituloAlum" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -95,7 +96,6 @@
                 android:ems="10"
                 android:inputType="text"
                 android:hint="Direccion"/>
-            >
 
 
             <EditText
@@ -106,7 +106,20 @@
                 android:ems="10"
                 android:inputType="date"
                 android:hint="FechaNacimiento"/>
-            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:padding="1dp"
+                android:text="Estado" />
+
+            <Spinner
+                android:id="@+id/spnCrudSalaEstado"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                />
 
 
             <TextView
@@ -115,6 +128,9 @@
                 android:layout_margin="3dp"
                 android:padding="1dp"
                 android:text="País" />
+
+
+
             <Spinner
                 android:id="@+id/spnCrudAlumnoPais"
                 android:layout_width="match_parent"
