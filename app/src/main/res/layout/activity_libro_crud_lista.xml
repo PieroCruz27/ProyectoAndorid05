@@ -19,6 +19,25 @@
         android:textStyle="bold" />
 
 
+    <Button
+        android:id="@+id/idCrudLibroLista"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
 
+        android:text="Lista"
+        />
 
+    <Button
+        android:id="@+id/idCrudLibroRegistra"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:text="Registra"
+        />
+    <ListView
+        android:id="@+id/idCrudLibroListView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        />
 </androidx.appcompat.widget.LinearLayoutCompat>

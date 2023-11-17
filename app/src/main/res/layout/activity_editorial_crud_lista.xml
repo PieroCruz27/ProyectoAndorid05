@@ -17,6 +17,28 @@
         android:textAlignment="center"
         android:textSize="18sp"
         android:textStyle="bold" />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Listar"
+        android:padding="10dp"
+        android:id="@+id/idCrudEditorialLista"
+        />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Registrar"
+        android:padding="10dp"
+        android:id="@+id/idCrudEditorialRegistra"
+        />
+
+    <ListView
+        android:id="@+id/idCrudEditorialListView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="10dp"
+
+        />
 
 
 
