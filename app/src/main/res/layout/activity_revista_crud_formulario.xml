@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.appcompat.widget.LinearLayoutCompat  xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".vista.crud.RevistaCrudFormularioActivity"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:padding="21dp"
+    tools:context=".vista.crud.RevistaCrudFormularioActivity">
 
     <TextView
+        android:id="@+id/tvCrudMantenimientoRevista"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
@@ -16,5 +18,181 @@
         android:textAlignment="center"
         android:textSize="18sp"
         android:textStyle="bold" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:background="@drawable/background_revista"
+        android:elevation="12dp">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/ivNombre"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginEnd="10dp"
+                    android:contentDescription="Person Name"
+                    android:src="@drawable/ic_book_revista" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:layout_marginTop="10dp"
+                    android:layout_toEndOf="@id/ivNombre"
+                    android:hint="@string/txt_nombre_revista">
+
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etCrudRevistaFormNombre"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="text" />
+                </com.google.android.material.textfield.TextInputLayout>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/ivFrecuencia"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginEnd="10dp"
+                    android:contentDescription="Person Name"
+                    android:src="@drawable/ic_frecuencia_revista" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_toEndOf="@id/ivFrecuencia"
+                    android:hint="@string/txt_frecuencia_revista"
+                    android:inputType="text">
+
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etCrudRevistaFormFrecuencia"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                </com.google.android.material.textfield.TextInputLayout>
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/ivFechaCreacion"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginEnd="10dp"
+                    android:contentDescription="Person Name"
+                    android:src="@drawable/ic_fechacreac_revista" />
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:layout_toEndOf="@id/ivFechaCreacion"
+                    android:hint="@string/txt_fechaCreacion_revista">
+
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etCrudRevistaFormFechaCreacion"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:clickable="true"
+                        android:focusable="false"
+                        android:inputType="date" />
+                </com.google.android.material.textfield.TextInputLayout>
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/ivPais"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginEnd="10dp"
+                    android:contentDescription="Person Name"
+                    android:src="@drawable/ic_pais_revista" />
+                <Spinner
+                    android:id="@+id/spnCrudRevistaFormPais"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@id/ivPais"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/spinner_revista"
+                    android:minHeight="48dp"
+
+                    android:padding="4dp" />
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/ivModalidad"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginEnd="10dp"
+                    android:contentDescription="Person Name"
+                    android:src="@drawable/ic_modalidad_revista" />
+                <Spinner
+                    android:id="@+id/spnCrudRevistaFormModalidad"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+
+                    android:layout_toEndOf="@id/ivModalidad"
+                    android:background="@drawable/spinner_revista"
+                    android:minHeight="48dp"
+
+                    android:padding="4dp" />
+            </RelativeLayout>
+
+            <Button
+                android:id="@+id/btnCrudRevistaFormRegistrar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="50dp"
+                android:layout_marginTop="20dp"
+                android:paddingVertical="20dp"
+                android:text="@string/registrar"
+                android:textSize="15sp"
+
+                />
+            <Button
+                android:id="@+id/btnCrudRevistaFormRegresar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="REGRESAR"/>
+        </androidx.appcompat.widget.LinearLayoutCompat>
+    </ScrollView>
+
+
 
 </androidx.appcompat.widget.LinearLayoutCompat>

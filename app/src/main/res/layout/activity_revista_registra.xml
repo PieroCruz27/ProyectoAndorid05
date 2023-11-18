@@ -188,7 +188,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="50dp"
                 android:layout_marginTop="20dp"
-                android:background="@drawable/button_revista"
                 android:paddingVertical="20dp"
                 android:text="@string/registrar"
                 android:textSize="15sp"

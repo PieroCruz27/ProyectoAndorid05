@@ -47,6 +47,8 @@
     <string name="txt_modalidad_revista">Modalidad</string>
     <string name="txt_pais_revista">País</string>
     <string name="registrar">registrar</string>
+    <string name="lista">Lista</string>
+    <string name="registra">Registra</string>
 
 
 </resources>

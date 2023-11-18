@@ -1,8 +1,9 @@
 package com.cibertec.proyecto.entity;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Revista {
+public class Revista implements Serializable {
     private int idRevista;
     private String nombre;
     private String frecuencia;
