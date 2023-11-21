@@ -33,7 +33,7 @@ import retrofit2.Response;
 
 public class AutorCrudFormularioActivity extends NewAppCompatActivity {
     Button btnRegresar, btnProcesar;
-    TextView  txtTitulo, txtNombres, txtApellidos, txtCorreo, txtFechaNacimiento;
+    TextView  txtTitulo, txtNombres, txtApellidos,txtTelefono, txtCorreo, txtFechaNacimiento;
 
     //Categoria
     Spinner spnGrado;
@@ -65,6 +65,7 @@ public class AutorCrudFormularioActivity extends NewAppCompatActivity {
         //Relacionar los variables con la variables de la GUI
         txtNombres = findViewById(R.id.txtRegEdiNombres);
         txtApellidos = findViewById(R.id.txtRegEdiApellidos);
+        txtTelefono = findViewById(R.id.txtRegEdiTelefono);
         txtCorreo = findViewById(R.id.txtRegEdiCorreo);
         txtFechaNacimiento = findViewById(R.id.txtRegEdiFechaNacimiento);
 
@@ -88,6 +89,7 @@ public class AutorCrudFormularioActivity extends NewAppCompatActivity {
             txtApellidos.setText(String.valueOf(objAutorSeleccionada.getApellidos()));
             txtCorreo.setText(String.valueOf(objAutorSeleccionada.getCorreo()));
             txtFechaNacimiento.setText(objAutorSeleccionada.getFechaNacimiento());
+            txtTelefono.setText(objAutorSeleccionada.getTelefono());
             btnProcesar.setText("Actualizar");
         }
         else{
@@ -112,12 +114,17 @@ public class AutorCrudFormularioActivity extends NewAppCompatActivity {
                 String apellidos = txtApellidos.getText().toString();
                 String correo = txtCorreo.getText().toString();
                 String fechaNacimiento = txtFechaNacimiento.getText().toString();
+                String telefono = txtTelefono.getText().toString();
                 String seleccionPais = spnPais.getSelectedItem().toString();
                 String seleccionGrado = spnGrado.getSelectedItem().toString();
                 if (nombres.isEmpty()) {
                     mensajeToast("Por favor, complete el campo Nombres.");
                 }else if (apellidos.isEmpty()){
                     mensajeToast("Por favor, complete el campo Apellidos.");
+                }else if (telefono.isEmpty()){
+                    mensajeToast("Por favor, complete el campo Teléfono.");
+                }else if (!telefono.matches("^[0-9]{9}$")){
+                    mensajeToast("El teléfono tiene 9 dígitos.");
                 }else if (correo.isEmpty()){
                     mensajeToast("Por favor, complete el campo Correo.");
                 } else if (!isValidEmail(correo)) {
@@ -148,6 +155,7 @@ public class AutorCrudFormularioActivity extends NewAppCompatActivity {
                     Autor objAutor = new Autor();
                     objAutor.setNombres(txtNombres.getText().toString());
                     objAutor.setApellidos(txtApellidos.getText().toString());
+                    objAutor.setTelefono(txtTelefono.getText().toString());
                     objAutor.setCorreo(txtCorreo.getText().toString());
                     objAutor.setFechaNacimiento(txtFechaNacimiento.getText().toString());
                     objAutor.setFechaRegistro(FunctionUtil.getFechaActualStringDateTime());
