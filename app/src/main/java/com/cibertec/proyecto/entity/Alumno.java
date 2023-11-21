@@ -1,6 +1,8 @@
 package com.cibertec.proyecto.entity;
 
-public class Alumno {
+import java.io.Serializable;
+
+public class Alumno implements Serializable {
     private int idAlumno;
     private String nombres;
     private String apellidos;
