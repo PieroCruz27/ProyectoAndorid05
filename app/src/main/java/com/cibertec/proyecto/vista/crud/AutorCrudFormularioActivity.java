@@ -1,5 +1,6 @@
 package com.cibertec.proyecto.vista.crud;
 
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -7,6 +8,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.cibertec.proyecto.R;
 import com.cibertec.proyecto.entity.Autor;
@@ -106,31 +108,60 @@ public class AutorCrudFormularioActivity extends NewAppCompatActivity {
         btnProcesar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String pais = spnPais.getSelectedItem().toString().split(":")[0].trim().toString();
-                String grado = spnGrado.getSelectedItem().toString().split(":")[0].trim().toString();
+                String nombres = txtNombres.getText().toString();
+                String apellidos = txtApellidos.getText().toString();
+                String correo = txtCorreo.getText().toString();
+                String fechaNacimiento = txtFechaNacimiento.getText().toString();
+                String seleccionPais = spnPais.getSelectedItem().toString();
+                String seleccionGrado = spnGrado.getSelectedItem().toString();
+                if (nombres.isEmpty()) {
+                    mensajeToast("Por favor, complete el campo Nombres.");
+                }else if (apellidos.isEmpty()){
+                    mensajeToast("Por favor, complete el campo Apellidos.");
+                }else if (correo.isEmpty()){
+                    mensajeToast("Por favor, complete el campo Correo.");
+                } else if (!isValidEmail(correo)) {
+                    mensajeToast("Ingrese un correo electrónico válido.");
+                }else if (fechaNacimiento.isEmpty()){
+                    mensajeToast("Por favor, complete el campo Fecha de Nacimiento.");
+                } else if (!isValidDateFormat(fechaNacimiento)) {
+                    // Validar el formato de la fecha de nacimiento
+                    mensajeToast("Ingrese una fecha de nacimiento válida (yyyy-MM-dd).");
+                } else if ("Seleccione un país".equals(seleccionPais)) {
+                    // Validar que se haya seleccionado un país
+                    mensajeToast("Por favor, seleccione un país.");
+                } else if ("Seleccione un grado".equals(seleccionGrado)) {
+                    // Validar que se haya seleccionado un grado
+                    mensajeToast("Por favor, seleccione un grado.");
+                } else {
 
-                Pais objPais = new Pais();
-                objPais.setIdPais(Integer.parseInt(pais));
 
-                Grado objGrado = new Grado();
-                objGrado.setIdGrado(Integer.parseInt(grado));
+                    String pais = spnPais.getSelectedItem().toString().split(":")[0].trim().toString();
+                    String grado = spnGrado.getSelectedItem().toString().split(":")[0].trim().toString();
 
-                Autor objAutor = new Autor();
-                objAutor.setNombres(txtNombres.getText().toString());
-                objAutor.setApellidos(txtApellidos.getText().toString());
-                objAutor.setCorreo(txtCorreo.getText().toString());
-                objAutor.setFechaNacimiento(txtFechaNacimiento.getText().toString());
-                objAutor.setFechaRegistro(FunctionUtil.getFechaActualStringDateTime());
-                objAutor.setPais(objPais);
-                objAutor.setGrado(objGrado);
+                    Pais objPais = new Pais();
+                    objPais.setIdPais(Integer.parseInt(pais));
+
+                    Grado objGrado = new Grado();
+                    objGrado.setIdGrado(Integer.parseInt(grado));
+
+                    Autor objAutor = new Autor();
+                    objAutor.setNombres(txtNombres.getText().toString());
+                    objAutor.setApellidos(txtApellidos.getText().toString());
+                    objAutor.setCorreo(txtCorreo.getText().toString());
+                    objAutor.setFechaNacimiento(txtFechaNacimiento.getText().toString());
+                    objAutor.setFechaRegistro(FunctionUtil.getFechaActualStringDateTime());
+                    objAutor.setPais(objPais);
+                    objAutor.setGrado(objGrado);
 
 
-                if (tipo.equals("Actualizar")){
-                    objAutor.setIdAutor(objAutorSeleccionada.getIdAutor());
-                    actualiza(objAutor);
-                }else{
-                    objAutor.setIdAutor(0);
-                    registra(objAutor);
+                    if (tipo.equals("Actualizar")) {
+                        objAutor.setIdAutor(objAutorSeleccionada.getIdAutor());
+                        actualiza(objAutor);
+                    } else {
+                        objAutor.setIdAutor(0);
+                        registra(objAutor);
+                    }
                 }
             }
         });
@@ -138,7 +169,26 @@ public class AutorCrudFormularioActivity extends NewAppCompatActivity {
 
     }
 
+    // Función para validar el formato de la fecha de nacimiento
+    private boolean isValidDateFormat(String date) {
+        return date.matches("[0-9]{4}-[0-9]{2}-[0-9]{2}");
+    }
+    // Función para validar el formato del correo electrónico
+    private boolean isValidEmail(String email) {
+        String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
+        return email.matches(emailPattern);
+    }
+    public void mensajeToast(String mensaje){
+        Toast toast1 =  Toast.makeText(getApplicationContext(),mensaje, Toast.LENGTH_LONG);
+        toast1.show();
+    }
 
+    public void mensajeAlert(String msg){
+        AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
+        alertDialog.setMessage(msg);
+        alertDialog.setCancelable(true);
+        alertDialog.show();
+    }
 
 
     public void registra(Autor objAutor){
