@@ -16,13 +16,14 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
-
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -35,11 +36,21 @@ public class MainActivity extends NewAppCompatActivity {
     Button btnMenuPrincipal;
     SignInButton mSignInButtonGoggle;
     TextView mTextViewRespuesta;
+    EditText txtEmail;
+    EditText txtClave;
+    Button btnLogin;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         btnMenuPrincipal = findViewById(R.id.menuprincipal);
+
+        // login normal
+        txtEmail = findViewById(R.id.editEmail);
+        txtClave = findViewById(R.id.editClave);
+        btnLogin = findViewById(R.id.btnLogin);
+
         mAuth = FirebaseAuth.getInstance();
         mSignInButtonGoggle = findViewById(R.id.btnGoogle);
         mTextViewRespuesta = findViewById(R.id.textViewRespuesta);
@@ -61,8 +72,39 @@ public class MainActivity extends NewAppCompatActivity {
                 signIn();
             }
         });
+        btnLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                login(txtEmail.getText().toString(),
+                        txtClave.getText().toString());
+            }
+        });
 
+    }
+    public void login (String email, String clave){
+        mAuth.signInWithEmailAndPassword(email, clave).
+                addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if(task.isSuccessful()){
+                            //mensajeAlert("Válido");
+                            // Iniciar la actividad MainActivity
+                            Intent intent = new Intent(MainActivity.this, InicioActivity.class);
+                            startActivity(intent);
 
+                            // Finalizar la actividad actual si no deseas volver a ella
+                            finish();
+                        }else {
+                            mensajeAlert("NO Válido");
+                        }
+                    }
+                });
+    }
+    public void mensajeAlert(String msg){
+        AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
+        alertDialog.setMessage(msg);
+        alertDialog.setCancelable(true);
+        alertDialog.show();
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

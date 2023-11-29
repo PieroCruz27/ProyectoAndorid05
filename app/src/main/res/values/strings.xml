@@ -49,5 +49,6 @@
     <string name="registrar">registrar</string>
     <string name="lista">Lista</string>
     <string name="registra">Registra</string>
-
+    <string name="txt_opcion_menu">Inicio</string>
+    <string name="txt_opcion_salir">Cerrar Sesión</string>
 </resources>

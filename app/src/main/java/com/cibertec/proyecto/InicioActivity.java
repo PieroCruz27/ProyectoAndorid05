@@ -5,7 +5,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import androidx.annotation.NonNull;
+
 import com.cibertec.proyecto.util.NewAppCompatActivity;
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -40,8 +47,17 @@ public class InicioActivity extends NewAppCompatActivity {
     private void logout(){
         // Cerrar sesión en Firebase
         mAuth.signOut();
-        clearApplicationData();
-
+        // If using GoogleSignInClient, sign out from Google as well
+        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .build();
+        GoogleSignInClient googleSignInClient = GoogleSignIn.getClient(this, gso);
+        googleSignInClient.signOut()
+                .addOnCompleteListener(this, new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        // Do something after Google sign out
+                    }
+                });
         // Ir a la actividad de inicio de sesión
         irMain();
     }
@@ -52,36 +68,7 @@ public class InicioActivity extends NewAppCompatActivity {
         finish();
     }
 
-    private void clearApplicationData() {
-        // Obtener el directorio de archivos de caché de la aplicación
-        File cacheDirectory = getCacheDir();
-        File applicationDirectory = new File(cacheDirectory.getParent());
 
-        // Eliminar archivos en el directorio de caché
-        if (applicationDirectory.exists()) {
-            String[] fileNames = applicationDirectory.list();
-            for (String fileName : fileNames) {
-                if (!fileName.equals("lib")) {
-                    deleteFile(new File(applicationDirectory, fileName));
-                }
-            }
-        }
-    }
 
-    private static boolean deleteFile(File file) {
-        boolean deletedAll = true;
 
-        if (file != null) {
-            if (file.isDirectory()) {
-                String[] children = file.list();
-                for (String child : children) {
-                    deletedAll = deleteFile(new File(file, child)) && deletedAll;
-                }
-            } else {
-                deletedAll = file.delete();
-            }
-        }
-
-        return deletedAll;
-    }
 }

@@ -10,6 +10,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.cibertec.proyecto.InicioActivity;
 import com.cibertec.proyecto.R;
 import com.cibertec.proyecto.vista.consulta.AlumnoConsultaActivity;
 import com.cibertec.proyecto.vista.consulta.AutorConsultaActivity;
@@ -47,6 +48,12 @@ public class NewAppCompatActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
+        //Opciones
+        if (id == R.id.idMenu){
+            Intent intent = new Intent(this, InicioActivity.class);
+            startActivity(intent);
+            return true;
+        }
 
         //Registra
         if (id == R.id.idMenuRegAlumno){
