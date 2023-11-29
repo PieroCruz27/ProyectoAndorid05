@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".InicioActivity">
 
     <TextView
         android:id="@+id/tvGrupo"
@@ -92,7 +92,14 @@
             android:layout_height="wrap_content"
             android:text="201716099 Solorzano Melendez, Sam Lenny"
             android:textSize="14sp" />
-
+        <Button
+            android:id="@+id/btnCerrarSesion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="CERRAR SESIÓN"
+            android:layout_marginTop="150dp"/>
     </LinearLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

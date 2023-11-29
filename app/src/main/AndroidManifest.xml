@@ -24,6 +24,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".InicioActivity" />
         <activity android:name=".vista.crud.AlumnoCrudFormularioActivity" />
         <activity android:name=".vista.crud.AlumnoCrudListaActivity" />
         <activity android:name=".vista.registra.AlumnoRegistraActivity" />
